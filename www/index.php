@@ -1,7 +1,7 @@
 <?php
 final class Index
 {
-        const DEFAULT_TEMPLATE_NAME = "default";
+        const DEFAULT_TEMPLATE_NAME = "default2";
         const DEFAULT_CONTROLLER_NAME = "Home";
         const DEFAULT_ACTION_NAME = "index";
 
