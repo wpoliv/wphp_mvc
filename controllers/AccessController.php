@@ -15,7 +15,7 @@ class AccessController extends Controller
     
     function index(?int $id = 0): object
     {
-        //$this->authenticate("admtable");
+        $this->authenticate("admtable");
         
         if ($id == 0) 
         {
