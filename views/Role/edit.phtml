@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-file-text me-1"></i>
+            Perfil: Editar
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="txtid" class="form-label">Código</label>
+                    <input name="txtid" type="text" class="form-control" id="txtid" value="<?php echo($model->role->getId())?>" disabled>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmrole" class="form-label">Nome</label>
+                    <input name="txtnmrole" type="text" class="form-control" id="txtnmrole" value="<?php echo($model->role->getName())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdsrole" class="form-label">Descrição</label>
+                    <input name="txtdsrole" type="text" class="form-control" id="txtdsrole" value="<?php echo($model->role->getDescription())?>">              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="Role" class="btn btn-danger">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

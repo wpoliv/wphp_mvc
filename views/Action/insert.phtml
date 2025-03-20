@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-file me-1"></i>
+            Regra: Novo
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="txtid" class="form-label">Código</label>
+                    <input name="txtid" type="text" class="form-control" id="txtid" value="<?php echo($model->action->getId())?>" disabled>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmaction" class="form-label">Nome</label>
+                    <input name="txtnmaction" type="text" class="form-control" id="txtnmaction" value="<?php echo($model->action->getName())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdsaction" class="form-label">Descrição</label>
+                    <input name="txtdsaction" type="text" class="form-control" id="txtdsaction" value="<?php echo($model->action->getDescription())?>">              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="Action" class="btn btn-danger">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

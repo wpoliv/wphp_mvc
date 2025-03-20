@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-file-text me-1"></i>
+            Tipo: Editar
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="txtcodigo" class="form-label">Código</label>
+                    <input name="txtcodigo" type="text" class="form-control" id="txtcodigo" value="<?php echo($model->tipo->getCodigo())?>" disabled>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmtipo" class="form-label">Nome</label>
+                    <input name="txtnmtipo" type="text" class="form-control" id="txtnmtipo" value="<?php echo($model->tipo->getNome())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="cbocategoria" class="form-label">Categoria</label>
+                    <select name="cbocategoria" id="cbocategoria" class="form-select" aria-label="Default select example">
+                    <?php
+                    echo("<option value='0'>Selecione a categoria</option>");
+                    if($model->categorias)
+                    {
+                        $sel = "";
+                        foreach ($model->categorias as $item)
+                        {
+                            $cd = $item->getCodigo();
+                            $nm = $item->getNome();
+                            $sel = ($cd == $model->tipo->getCategoria()->getCodigo() ? " selected": "");
+                            echo("<option value='{$cd}'{$sel}>{$nm}</option>");
+                        }
+                    }?>
+                    </select>                                       
+                </div>
+                <div class="mb-3">
+                    <label for="txtdstipo" class="form-label">Observação</label>
+                    <input name="txtdstipo" type="text" class="form-control" id="txtdstipo" value="<?php echo($model->tipo->getDescricao())?>">              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="Tipo" class="btn btn-danger">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

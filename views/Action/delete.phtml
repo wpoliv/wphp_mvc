@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-trash me-1"></i>
+            Regra: Excluir
+        </div>
+        <div class="card-body">
+            <p>Conforma a exclusão dos dados abaixo?</p>
+            <hr/>
+            <form method="post">
+                <input name="txtid" type="hidden" value="<?php echo($model->action->getId())?>"/>                  
+                <div class="mb-3">
+                    <label for="txtid" class="form-label">Código</label>
+                    <div class="form-control" id="txtid"><?php echo($model->action->getId())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmaction" class="form-label">Nome</label>
+                    <div class="form-control" id="txtnmaction"><?php echo($model->action->getName())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdsaction" class="form-label">Descrição</label>
+                    <div class="form-control" id="txtdsaction"><?php echo($model->action->getDescription())?></div>              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Sim</button>
+                <a href="Action" class="btn btn-danger">Não</a>
+            </form>
+        </div>
+    </div>
+</div>

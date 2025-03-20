@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-user me-1"></i> Editar Contato
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="txtid" class="form-label">Código</label>
+                    <input name="txtid" type="text" class="form-control" id="txtid" value="<?php echo($model->contact->getId())?>" disabled>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtfirstname" class="form-label">Nome</label>
+                    <input name="txtfirstname" type="text" class="form-control" id="txtfirstname" value="<?php echo($model->contact->getFirstName())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="txtlastname" class="form-label">Sobrenome</label>
+                    <input name="txtlastname" type="text" class="form-control" id="txtlastname" value="<?php echo($model->contact->getLastName())?>">              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="Contact" class="btn btn-danger">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

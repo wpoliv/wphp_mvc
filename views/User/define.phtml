@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-key me-1"></i>
+            Definir Senha
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="mb-3">
+                            <label  class="form-label">Código</label>
+                            <div class="form-control" id="txtid"><?php echo($model->user->getId())?></div>              
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="mb-3">
+                            <label class="form-label">Nome comleto</label>
+                            <div class="form-control" id="txtfullname"><?php echo($model->user->getFullName())?></div>              
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="mb-3">
+                            <label class="form-label" for="txtlogin">Login</label>
+                            <input type="text" name="txtlogin" id="txtlogin" class="form-control" id="txtlogin" value="<?php echo($model->user->getLogin())?>">              
+                        </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="mb-3">
+                            <label class="form-label">Perfil</label>
+                            <select name="cboroleid" id="cboroleid" class="form-select" aria-label="Selecionar o modelo">
+                                <option value="0">Selecione o perfil</option>
+                                <?php
+                                if($model->roles)
+                                {
+                                    $sel = "";
+                                    foreach ($model->roles as $item)
+                                    {
+                                        $id = $item->getId();
+                                        $nm = $item->getName();
+                                        $sel = ($id == $model->viewmodel->getRoleId() ? " selected": "");
+                                        echo("<option value='{$id}'{$sel}>{$nm}</option>");
+                                    }
+                                }?>
+                            </select>
+                        </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="mb-3">
+                            <label for="txtpassword" class="form-label">Definir senha</label>
+                            <input name="txtpassword" type="password" class="form-control" id="txtnewpassword" value="<?php echo($model->viewmodel->getPassword())?>">            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="mb-3">
+                            <label for="txtconfirm" class="form-label">Confirmar senha</label>
+                            <input name="txtconfirm" type="password" class="form-control" id="txtconfirm" value="<?php echo($model->viewmodel->getConfirm())?>">            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="mb-3">
+                            <?php echo($model->message)?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <a href="Contact" class="btn btn-danger">Voltar</a>
+                        </div>
+                    </div>
+                </div>               
+            </form>
+        </div>
+    </div>
+</div>

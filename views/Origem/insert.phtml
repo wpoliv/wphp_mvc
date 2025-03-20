@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-file me-1"></i>
+            Origem: Novo
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="txtcodigo" class="form-label">Código</label>
+                    <input name="txtcodigo" type="text" class="form-control" id="txtcodigo" value="<?php echo($model->origem->getCodigo())?>" disabled>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmorigem" class="form-label">Nome</label>
+                    <input name="txtnmorigem" type="text" class="form-control" id="txtnmorigem" value="<?php echo($model->origem->getNome())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdsorigem" class="form-label">Descrição</label>
+                    <input name="txtdsorigem" type="text" class="form-control" id="txtdsorigem" value="<?php echo($model->origem->getDescricao())?>">              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="Origem" class="btn btn-danger">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

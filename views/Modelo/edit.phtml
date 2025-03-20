@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-file-text me-1"></i>
+            Tipo: Editar
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="txtcodigo" class="form-label">Código</label>
+                    <input name="txtcodigo" type="text" class="form-control" id="txtcodigo" value="<?php echo($model->modelo->getCodigo())?>" disabled>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmmodelo" class="form-label">Nome</label>
+                    <input name="txtnmmodelo" type="text" class="form-control" id="txtnmmodelo" value="<?php echo($model->modelo->getNome())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="cbotipo" class="form-label">Tipo</label>
+                    <select name="cbotipo" id="cbotipo" class="form-select" aria-label="Default select example">
+                    <?php
+                    echo("<option value='0'>Selecione o tipo</option>");
+                    if($model->tipos)
+                    {
+                        $sel = "";
+                        foreach ($model->tipos as $item)
+                        {
+                            $cd = $item->getCodigo();
+                            $nm = $item->getNome();
+                            $sel = ($cd == $model->modelo->getTipo()->getCodigo() ? " selected": "");
+                            echo("<option value='{$cd}'{$sel}>{$nm}</option>");
+                        }
+                    }?>
+                    </select>                                       
+                </div>
+                <div class="mb-3">
+                    <label for="cbofabricante" class="form-label">Fabricante</label>
+                    <select name="cbofabricante" id="cbofabricante" class="form-select" aria-label="Default select example">
+                    <?php
+                    echo("<option value='0'>Selecione o fabricante</option>");
+                    if($model->fabricantes)
+                    {
+                        $sel = "";
+                        foreach ($model->fabricantes as $item)
+                        {
+                            $cd = $item->getCodigo();
+                            $nm = $item->getNome();
+                            $sel = ($cd == $model->modelo->getFabricante()->getCodigo() ? " selected": "");
+                            echo("<option value='{$cd}'{$sel}>{$nm}</option>");
+                        }
+                    }?>
+                    </select>                                       
+                </div>
+                <div class="mb-3">
+                    <label for="txtnumodelo" class="form-label">Número</label>
+                    <input name="txtnumodelo" type="text" class="form-control" id="txtnumodelo" value="<?php echo($model->modelo->getNumero())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdsmodelo" class="form-label">Descrição</label>
+                    <input name="txtdsmodelo" type="text" class="form-control" id="txtdsmodelo" value="<?php echo($model->modelo->getDescricao())?>">              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="Modelo" class="btn btn-danger">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

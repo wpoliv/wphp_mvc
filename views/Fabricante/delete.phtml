@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-trash me-1"></i>
+            Fabricante: Excluir
+        </div>
+        <div class="card-body">
+            <p>Conforma a exclusão dos dados abaixo?</p>
+            <hr/>
+            <form method="post">
+                <input name="txtcodigo" type="hidden" value="<?php echo($model->fabricante->getCodigo())?>"/>                  
+                <div class="mb-3">
+                    <label for="txtcodigo" class="form-label">Código</label>
+                    <div class="form-control" id="txtcodigo"><?php echo($model->fabricante->getCodigo())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmfabricante" class="form-label">Nome</label>
+                    <div class="form-control" id="txtnmfabricante"><?php echo($model->fabricante->getNome())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdsfabricante" class="form-label">Descrição</label>
+                    <div class="form-control" id="txtdsfabricante"><?php echo($model->fabricante->getDescricao())?></div>              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Sim</button>
+                <a href="Fabricante" class="btn btn-danger">Não</a>
+            </form>
+        </div>
+    </div>
+</div>

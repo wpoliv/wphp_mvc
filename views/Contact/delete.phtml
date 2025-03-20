@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-user-times me-1"></i> Excluir Contato
+        </div>
+        <div class="card-body">
+            <p>Conforma a exclusão dos dados abaixo?</p>
+            <hr/>
+            <form method="post">
+                <input name="txtid" type="hidden" value="<?php echo($model->contact->getId())?>"/>                  
+                <div class="mb-3">
+                    <label for="txtid" class="form-label">Código</label>
+                    <div class="form-control" id="txtid"><?php echo($model->contact->getId())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtfirstname" class="form-label">Nome</label>
+                    <div class="form-control" id="txtdsrole"><?php echo($model->contact->getFirstname())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtlastname" class="form-label">Sobrenome</label>
+                    <div class="form-control" id="txtdsrole"><?php echo($model->contact->getLastName())?></div>              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Sim</button>
+                <a href="Contact" class="btn btn-danger">Não</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-trash me-1"></i>
+            Categoria: Excluir
+        </div>
+        <div class="card-body">
+            <p>Conforma a exclusão dos dados abaixo?</p>
+            <hr/>
+            <form method="post">
+                <input name="txtcodigo" type="hidden" value="<?php echo($model->tipo->getCodigo())?>"/>                  
+                <div class="mb-3">
+                    <label for="txtcodigo" class="form-label">Código</label>
+                    <div class="form-control" id="txtcodigo"><?php echo($model->tipo->getCodigo())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdsorigem" class="form-label">Nome</label>
+                    <div class="form-control" id="txtdsorigem"><?php echo($model->tipo->getNome())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="cbocategoria" class="form-label">Categoria</label>
+                    <div class="form-control" id="cbocategoria"><?php echo($model->tipo->getCategoria()->getNome())?></div>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdsdescricao" class="form-label">Descrição</label>
+                    <div class="form-control" id="txtdsdescricao"><?php echo($model->tipo->getDescricao())?></div>              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Sim</button>
+                <a href="Tipo" class="btn btn-danger">Não</a>
+            </form>
+        </div>
+    </div>
+</div>

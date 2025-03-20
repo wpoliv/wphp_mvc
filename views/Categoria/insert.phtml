@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-file me-1"></i>
+            Categoria: Novo
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="txtcodigo" class="form-label">Código</label>
+                    <input name="txtcodigo" type="text" class="form-control" id="txtcodigo" value="<?php echo($model->categoria->getCodigo())?>" disabled>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmcategoria" class="form-label">Nome</label>
+                    <input name="txtnmcategoria" type="text" class="form-control" id="txtnmcategoria" value="<?php echo($model->categoria->getNome())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdscategoria" class="form-label">Descrição</label>
+                    <input name="txtdscategoria" type="text" class="form-control" id="txtdscategoria" value="<?php echo($model->categoria->getDescricao())?>">              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="Categoria" class="btn btn-danger">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

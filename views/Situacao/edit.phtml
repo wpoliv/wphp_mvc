@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-file-text me-1"></i>
+            Situação: Editar
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="mb-3">
+                    <label for="txtcodigo" class="form-label">Código</label>
+                    <input name="txtcodigo" type="text" class="form-control" id="txtcodigo" value="<?php echo($model->situacao->getCodigo())?>" disabled>              
+                </div>
+                <div class="mb-3">
+                    <label for="txtnmsituacao" class="form-label">Nome</label>
+                    <input name="txtnmsituacao" type="text" class="form-control" id="txtnmsituacao" value="<?php echo($model->situacao->getNome())?>">              
+                </div>
+                <div class="mb-3">
+                    <label for="txtdssituacao" class="form-label">Observação</label>
+                    <input name="txtdssituacao" type="text" class="form-control" id="txtdssituacao" value="<?php echo($model->situacao->getDescricao())?>">              
+                </div>
+                <div class="mb3">
+                    <?php echo($model->message)?>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="Situacao" class="btn btn-danger">Voltar</a>
+            </form>
+        </div>
+    </div>
+</div>

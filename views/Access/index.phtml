@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-flag me-1"></i> <?php echo("Detalhes do perfil")?>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="mb-3">
+                        <label  class="form-label">Código</label>
+                        <div class="form-control" id="txtid"><?php echo($model->role->getId())?></div>              
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
+                        <div class="form-control" id="txtname"><?php echo($model->role->getName())?></div>              
+                    </div>
+                </div>  
+                <div class="col-lg-5">
+                    <div class="mb-3">
+                        <label class="form-label">Descrição</label>
+                        <div class="form-control" id="txtdescription"><?php echo($model->role->getDescription())?></div>              
+                    </div>
+                </div>
+            </div>                                                        
+            <hr/>
+            <form method="post">
+                <input name="txtid" type="hidden" value="<?php echo($model->role->getId())?>"/>  
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label for="txtrole" class="form-label">Informe o código ou nome da ação</label>
+                        <div class="input-group">
+                            <input name="txtaction" id="txtaction" type="text" class="form-control" value="<?php echo($model->txtaction)?>">
+                            <button type="submit" class="btn btn-primary" href="User/insert">Adicionar Ação</button>
+                        </div>
+                        <div class="input_group">
+                            <?php echo($model->message)?>
+                        </div>                      
+                    </div>
+                </div>                    
+            </form>
+            <p/>
+            <p>Regras para o perfil: <strong><?php echo($model->role->getName())?></strong></p>
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Código</th>
+                        <th>Regra</th>
+                        <th>Observação</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th>Código</th>
+                        <th>Regra</th>
+                        <th>Observação</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                <?php
+                if($model->role->getActions() != null)
+                {
+                    foreach($model->role->getActions() as $item)
+                    {?>
+                        <tr>
+                            <td>                          
+                                <a href="Access/delete/<?php echo($model->role->getId())?>?action=<?php echo($item->getId())?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            </td>
+                            <td><?php echo($item->getId())?></td>
+                            <td><?php echo($item->getName())?></td>
+                            <td><?php echo($item->getDescription())?></td>
+                        </tr>
+                    <?php 
+                    }
+                }?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', event => {
+        // Simple-DataTables
+        // https://github.com/fiduswriter/Simple-DataTables/wiki
+
+        const datatablesSimple = document.getElementById('datatablesSimple');
+        if (datatablesSimple) {
+            new simpleDatatables.DataTable(datatablesSimple, {"searchable": false, "paging": false});
+        }
+    });
+</script>

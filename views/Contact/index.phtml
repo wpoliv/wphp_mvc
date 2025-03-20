@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <p/>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-users me-1"></i> Contatos
+        </div>
+        <div class="card-body">
+            <a class="btn btn-primary" href="Contact/insert">Novo...</a>
+            <hr/>
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                <?php
+                if($model != null)
+                {
+                    foreach($model as $item)
+                    {?>
+                        <tr>
+                            <td>
+                                <a href="Contact/edit/<?php echo($item->getId())?>" class="btn btn-primary btn-sm" ><i class="fa fa-edit"></i></a>
+                                <a href="User/define/<?php echo($item->getId())?>" class="btn btn-warning btn-sm"><i class="fa fa-key"></i></a>
+                                <a href="Contact/delete/<?php echo($item->getId())?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            </td>
+                            <td><?php echo($item->getId())?></td>
+                            <td><?php echo($item->getFirstName())?></td>
+                            <td><?php echo($item->getLastname())?></td>
+                        </tr>
+                    <?php 
+                    }
+                }?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', event => {
+    // Simple-DataTables
+    // https://github.com/fiduswriter/Simple-DataTables/wiki
+
+    const datatablesSimple = document.getElementById('datatablesSimple');
+    if (datatablesSimple) {
+        new simpleDatatables.DataTable(datatablesSimple);
+    }
+});
+</script>
